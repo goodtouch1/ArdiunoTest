@@ -13,6 +13,8 @@ void setup() {
   // put your setup code here, to run once:
   setupPinsMode();
   Serial.begin(9600);
+  WiFi.begin(WIFI_SSID,WIFI_PASSWORD);
+  Serial.print("Connecting to Wi-Fi");
   Serial.print("Tamamlandı");
   mySerial.begin(9600);,
 
