@@ -1,6 +1,8 @@
 #include "Ardiuno.h"
 #include <SoftwareSerial.h> \\Bluetooth giris cikis tanımı
 SoftwareSerial mySerial(4, 6); //HC-06'nın Rx , Tx bacakları tanımlandı
+#define FIREBASE_HOST "https://arduinounotest-ce531-default-rtdb.firebaseio.com/"
+#define FIREBASE_AUTH "eCz0OSLAHB7kaWKqeNWd0NtcZ1MTTha3D0yXDyaL"
 int kirmizi = 8;
 int sari = 9;
 int yesil = 10;
