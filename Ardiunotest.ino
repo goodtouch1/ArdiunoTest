@@ -1,16 +1,31 @@
 #include "Ardiuno.h"
 #include <SoftwareSerial.h> \\Bluetooth giris cikis tanımı
 SoftwareSerial mySerial(4, 6); //HC-06'nın Rx , Tx bacakları tanımlandı
+#define WIFI_SSID "TurkTelekom_ZTUVF"
+#define WIFI_PASSWORD "EB12.bexyz"
 int kirmizi = 8;
 int sari = 9;
 int yesil = 10;
 int onay ;
+FirebaseData firebaseData;
+FirebaseJson json;
 void setup() {
   // put your setup code here, to run once:
   setupPinsMode();
   Serial.begin(9600);
+  WiFi.begin(WIFI_SSID,WIFI_PASSWORD);
+  Serial.print("Wi-Fi Baglantisi saglandi.");
   Serial.print("Tamamlandı");
-  mySerial.begin(9600);,
+  mySerial.begin(9600);
+ while (WiFi.status() != WL_CONNECTED)
+  {
+    Serial.print(".");
+    delay(300);
+  }
+  Serial.primtln();
+  Serial.print("Baglanılan IP :");
+  Serial.println(WiFi.localIP());
+  Serial.println();
 
 }
 
