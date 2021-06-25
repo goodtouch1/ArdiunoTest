@@ -7,6 +7,8 @@ int kirmizi = 8;
 int sari = 9;
 int yesil = 10;
 int onay ;
+string acik = "on";
+string kapali = "off";
 void setup() {
   // put your setup code here, to run once:
   setupPinsMode();
@@ -18,19 +20,17 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(kirmizi, HIGH);   // Kirmizi led baslatıldı
+  digitalWrite(kirmizi, HIGH);          // Kirmizi led baslatildi
+  Firebase.setString("kirmizi",acik);   //Firebase kirmizi dalina "on" degeri gönderildi  
   delay(20000);                  // 20 saniye kirmizi yaniyor
-  onay = digitalRead(kirmizi);
-  if(onay == true){
-    mySerial.print(onay);
-  }
-  digitalWrite(kirmizi,LOW);     //Kirmizi led sonlandırıldı
-  digitalWrite(sari, HIGH);  //Sari led baslatıldı
+  digitalWrite(kirmizi,LOW);      //Kirmizi led sonlandirildi
+  Firenbase.setString("kirmizi",kapali);    //Firabase kirmizi dalina "off" degeri gönderildi
+  digitalWrite(sari, HIGH);  //Sari led baslatildi
   delay(1500);            //1,5 saniye bekle  
-  digitalWrite(sari, LOW);   //Sari led sonlandırıldı
-  digitalWrite(yesil, HIGH); //Yesil led baslatıldı
+  digitalWrite(sari, LOW);   //Sari led sonlandirildi
+  digitalWrite(yesil, HIGH); //Yesil led baslatildi
   delay(20000);             //20 saniye yesil yaniyor
-  digitalWrite(yesil, LOW); //Yesil led sonlandırıldı
+  digitalWrite(yesil, LOW); //Yesil led sonlandirildi
 }
 void setupPinsMode(){
   pinMode(8, OUTPUT);
